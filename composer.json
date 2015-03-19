@@ -1,0 +1,24 @@
+{
+    "name": "creativeorange/gravatar",
+    "description": "A Laravel 5 gravatar package for retrieving gravatar image URLs or checking the existance of an image.",
+    "keywords": ["laravel","gravatar","avatar"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jaco Tijssen",
+            "email": "jaco@creativeorange.nl",
+            "homepage": "https://www.creativeorange.nl",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "5.0.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Creativeorange\\Gravatar": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
