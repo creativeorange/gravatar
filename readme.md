@@ -1,10 +1,14 @@
 # Gravatar for Laravel 5
 
+[![Total Downloads](https://poser.pugx.org/creativeorange/gravatar/d/total.svg)](https://packagist.org/packages/creativeorange/gravatar)
+[![Latest Stable Version](https://poser.pugx.org/creativeorange/gravatar/v/stable.svg)](https://packagist.org/packages/creativeorange/gravatar)
+[![License](https://poser.pugx.org/creativeorange/gravatar/license.svg)](https://packagist.org/packages/creativeorange/gravatar)
+
 ## Installation
 
 First, pull in the package through Composer via the command line:
 ```js
-composer require creativeorange/gravatar
+composer require creativeorange/gravatar ~1.0
 ```
 
 or add the following to your composer.json file and run `composer update`.
@@ -99,4 +103,9 @@ Gravatar::get('email@example.com', 'default'); // will use the default group
 Gravatar::get('email@example.com'); // will use the default group
 ```
 
+Alternatively, you could also pass an array directly as the second parameter as inline options. So, instead of passing a configuration key, you pass an array, which will be merged with the default group:
+
+```php
+Gravatar::get('email@example.com', ['size'=>200]); 
+```
 
