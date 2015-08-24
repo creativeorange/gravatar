@@ -202,8 +202,7 @@ class Gravatar {
 	 */
 	private function defaultParameter ()
 	{
-		if ( ! isset($this->fallback) )
-			$this->fallback = $this->c( 'fallback' );
+		$this->fallback = $this->c( 'fallback' );
 
 		if ( ! $this->fallback )
 			return null;
