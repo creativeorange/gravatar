@@ -21,7 +21,7 @@ class GravatarServiceProvider extends ServiceProvider {
 		$configPath = __DIR__ . '/../config/gravatar.php';
 		$this->mergeConfigFrom($configPath, 'gravatar');
 
-		$this->app->bindShared('gravatar', function () {
+		$this->app->singleton('gravatar', function () {
 			return new Gravatar;
 		});
 	}
