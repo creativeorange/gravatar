@@ -75,8 +75,7 @@ class Gravatar {
 		$this->checkEmail($email);
 		$this->email = $email;
 
-		$this->fallback = '404';
-		$this->setConfig([]);
+		$this->setConfig(['fallback' => 404]);
 
 		$headers = get_headers($this->buildUrl());
 
