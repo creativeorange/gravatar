@@ -1,6 +1,6 @@
 {
     "name": "creativeorange/gravatar",
-    "description": "A Laravel 5.0, 5.1 and 5.2 gravatar package for retrieving gravatar image URLs or checking the existance of an image.",
+    "description": "A Laravel 5.0, 5.1, 5.2 and 5.3 gravatar package for retrieving gravatar image URLs or checking the existance of an image.",
     "keywords": ["laravel","gravatar","avatar"],
     "license": "MIT",
     "authors": [
@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "illuminate/support": "5.0.*|5.1.*|5.2.*"
+        "illuminate/support": "5.*"
     },
     "autoload": {
         "psr-4": {
