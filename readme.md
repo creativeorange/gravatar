@@ -1,4 +1,4 @@
-# Gravatar for Laravel 5.0, 5.1, 5.2 and 5.3
+# Gravatar for Laravel 5.0.x through 5.4.x
 
 [![Total Downloads](https://poser.pugx.org/creativeorange/gravatar/d/total.svg)](https://packagist.org/packages/creativeorange/gravatar)
 [![Latest Stable Version](https://poser.pugx.org/creativeorange/gravatar/v/stable.svg)](https://packagist.org/packages/creativeorange/gravatar)
@@ -19,11 +19,19 @@ or add the following to your composer.json file and run `composer update`.
 }
 ```
 
-Then include the service provider within `app/config/app.php`.
+Then include the service provider within (Laravel 5.3 or below) `app/config/app.php`.
 
 ```php
 'providers' => [
     'Creativeorange\Gravatar\GravatarServiceProvider'
+];
+```
+
+If using Laravel 5.4, include service provider withing `config/app.php`
+
+```php
+'providers' => [
+    Creativeorange\Gravatar\GravatarServiceProvider::class
 ];
 ```
 
@@ -35,6 +43,15 @@ And, for convenience, add a facade alias to this same file at the bottom:
     'Gravatar' => 'Creativeorange\Gravatar\Facades\Gravatar',
 ];
 ```
+
+If you are using Laravel 5.4 or greater, add as follows, add to `config/app.php`
+
+```php
+'aliases' => [
+    'Gravatar' => Creativeorange\Gravatar\Facades\Gravatar::class,
+];
+```
+		
 
 Finally, publish the config by running the `php artisan vendor:publish` command
 
@@ -50,9 +67,9 @@ Within your controllers or views, you can use
 this will return the URL to the gravatar image of the specified email address.
 In case of a non-existing gravatar, it will return return a URL to a placeholder image. 
 You can set the type of the placeholder in the configuration option `fallback`. 
-For more infomation, visit http://en.gravatar.com/site/implement/images/#default-image
+For more information, visit [gravatar.com](http://en.gravatar.com/site/implement/images/#default-image)
 
-Alternatively, you can check for the existance of a gravatar image by using
+Alternatively, you can check for the existence of a gravatar image by using
 
 ```php
     Gravatar::exists('email@example.com');
@@ -70,6 +87,7 @@ Or you can pass a url to a custom image using the fallback method:
 ## Configuration
 
 You can create different configuration groups to use within your application and pass the group name as a second parameter to the `get`-method:
+
 There is a default group in `config/gravatar.php` which will be used when you do not specify a second parameter.
 
 If you would like to add more groups, feel free to edit the `config/gravatar.php` file. For example:
@@ -94,7 +112,7 @@ return array(
 );
 ```
 
-after that, you can use the following syntax:
+then you can use the following syntax:
 
 ```php
 Gravatar::get('email@example.com', 'small-secure'); // will use the small-secure group
