@@ -20,5 +20,15 @@
             "Creativeorange\\Gravatar": "src/"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Creativeorange\\Gravatar\\GravatarServiceProvider"
+            ],
+            "aliases": {
+                "Gravatar": "Creativeorange\\Gravatar\\Facades\\Gravatar"
+            }
+        }
+    },
     "minimum-stability": "stable"
 }
