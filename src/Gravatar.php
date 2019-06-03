@@ -1,6 +1,7 @@
 <?php namespace Creativeorange\Gravatar;
 
 use Creativeorange\Gravatar\Exceptions\InvalidEmailException;
+use Illuminate\Support\Arr;
 
 /**
  * Class Gravatar
@@ -112,11 +113,11 @@ class Gravatar {
 	private function setConfig ($group = null)
 	{
 		if (is_string($group) && $group != 'default')
-			$this->config = array_dot( array_replace_recursive( config('gravatar.default'), config('gravatar.'.$group) ) );
+			$this->config = Arr::dot( array_replace_recursive( config('gravatar.default'), config('gravatar.'.$group) ) );
 		elseif (is_array($group))
-			$this->config = array_dot( array_replace_recursive( config('gravatar.default'), $group) );
+			$this->config = Arr::dot( array_replace_recursive( config('gravatar.default'), $group) );
 		else
-			$this->config = array_dot( config('gravatar.default') );
+			$this->config = Arr::dot( config('gravatar.default') );
 
 		return $this;
 	}
