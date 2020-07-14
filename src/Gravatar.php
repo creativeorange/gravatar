@@ -55,7 +55,7 @@ class Gravatar
 	{
 		if (
 			filter_var($fallback, FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED)
-			|| in_array($fallback, array('mm', 'identicon', 'monsterid', 'wavatar', 'retro', 'blank'))
+			|| in_array($fallback, array('mp', 'identicon', 'monsterid', 'wavatar', 'retro', 'robohash', 'blank'))
 		) {
 			$this->fallback = $fallback;
 		} else {
