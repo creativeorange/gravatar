@@ -53,6 +53,11 @@ class Gravatar
 	 */
 	public function fallback($fallback)
 	{
+		// Gravatar changed mm to mp. 
+		// This way we make sure everything keeps working
+		if ($fallback === 'mm')
+			$fallback = 'mp';
+		
 		if (
 			filter_var($fallback, FILTER_VALIDATE_URL, FILTER_FLAG_PATH_REQUIRED)
 			|| in_array($fallback, array('mp', 'identicon', 'monsterid', 'wavatar', 'retro', 'robohash', 'blank'))
