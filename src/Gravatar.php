@@ -4,6 +4,7 @@ namespace Creativeorange\Gravatar;
 
 use Creativeorange\Gravatar\Exceptions\InvalidEmailException;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Validator;
 
 /**
  * Class Gravatar
@@ -255,7 +256,9 @@ class Gravatar
 	 */
 	private function checkEmail($email)
 	{
-		if (!filter_var($email, FILTER_VALIDATE_EMAIL))
-			throw new InvalidEmailException('Please specify a valid email address');
+	    $validator = Validator::make(['email' => $email], ['email' => 'required|email']);
+
+        if ($validator->fails())
+            throw new InvalidEmailException('Please specify a valid email address');
 	}
 }
