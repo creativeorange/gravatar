@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @method static \Creativeorange\Gravatar\Gravatar fallback(string $fallback)
- * @method static string get(string $email, string $configGroup = 'default')
+ * @method static string get(string $email, string|array|null $configGroup = 'default')
  * @method static bool exists(string $email)
- * 
+ *
  * @see \Creativeorange\Gravatar\Gravatar
  */
 class Gravatar extends Facade
