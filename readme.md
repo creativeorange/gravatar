@@ -1,4 +1,4 @@
-# Gravatar for Laravel 5.x, 6 and 7
+# Gravatar for Laravel 5.x, 6, 7 and 8
 
 [![Total Downloads](https://poser.pugx.org/creativeorange/gravatar/d/total.svg)](https://packagist.org/packages/creativeorange/gravatar)
 [![Latest Stable Version](https://poser.pugx.org/creativeorange/gravatar/v/stable.svg)](https://packagist.org/packages/creativeorange/gravatar)
