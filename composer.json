@@ -19,6 +19,11 @@
     "php": ">=5.4.0",
     "illuminate/support": "^5|^6|^7"
   },
+  "require-dev": {
+    "php": ">=7.2",
+    "nunomaduro/larastan": "^0.6.2",
+    "orchestra/testbench": "^5.4"
+  },
   "autoload": {
     "psr-4": {
       "Creativeorange\\Gravatar\\": "src/"
@@ -34,5 +39,8 @@
       }
     }
   },
-  "minimum-stability": "stable"
+  "minimum-stability": "stable",
+  "scripts": {
+    "analyze": "phpstan analyse -c vendor/nunomaduro/larastan/extension.neon -l 5 src/"
+  }
 }

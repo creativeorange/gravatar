@@ -39,7 +39,7 @@ class Gravatar
 	private $config;
 
 	/**
-	 * @var string
+	 * @var string|false
 	 */
 	private $fallback;
 
@@ -73,7 +73,7 @@ class Gravatar
 	/**
 	 * Check if Gravatar has an avatar for the given email address
 	 *
-	 * @param $email
+	 * @param string $email
 	 * @return bool
 	 * @throws InvalidEmailException
 	 */
@@ -92,7 +92,7 @@ class Gravatar
 	/**
 	 * Get the gravatar url
 	 *
-	 * @param $email
+	 * @param string $email
 	 * @param string $configGroup
 	 * @return string
 	 * @throws InvalidEmailException
@@ -135,9 +135,9 @@ class Gravatar
 	/**
 	 * Helper function to retrieve config settings.
 	 *
-	 * @param $value
-	 * @param null $default
-	 * @return null
+	 * @param string $value
+	 * @param mixed $default
+	 * @return mixed
 	 */
 	protected function c($value, $default = null)
 	{
@@ -213,12 +213,12 @@ class Gravatar
 	}
 
 	/**
-	 * @return array|null
+	 * @return array
 	 */
 	private function defaultParameter()
 	{
-		if (!$this->fallback) {
-            $this->fallback = $this->c('fallback') ? $this->c('fallback') : null;
+		if ($this->fallback === false) {
+			$this->fallback = $this->c('fallback') ? $this->c('fallback') : null;
 		}
 
 		return array('d' => $this->fallback);
@@ -256,14 +256,14 @@ class Gravatar
 	/**
 	 * Check if the provided email address is valid
 	 *
-	 * @param $email
+	 * @param string $email
 	 * @throws InvalidEmailException
 	 */
 	private function checkEmail($email)
 	{
-	    $validator = Validator::make(['email' => $email], ['email' => 'required|email']);
+		$validator = Validator::make(['email' => $email], ['email' => 'required|email']);
 
-        if ($validator->fails())
-            throw new InvalidEmailException('Please specify a valid email address');
+		if ($validator->fails())
+			throw new InvalidEmailException('Please specify a valid email address');
 	}
 }
