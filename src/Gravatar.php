@@ -41,7 +41,7 @@ class Gravatar
 	/**
 	 * @var string|false
 	 */
-	private $fallback;
+	private $fallback = false;
 
 	/**
 	 * Override the default image fallback set in the config.
