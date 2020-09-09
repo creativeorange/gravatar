@@ -10,7 +10,7 @@ return [
 
 		// the fallback image, can be a string or a url
 		// for more info, visit: http://en.gravatar.com/site/implement/images/#default-image
-		'fallback' => 'mm',
+		'fallback' => 'mp',
 
 		// would you like to return a https://... image
 		'secure' => false,
