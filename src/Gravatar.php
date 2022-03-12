@@ -93,7 +93,7 @@ class Gravatar
 	 * Get the gravatar url
 	 *
 	 * @param string $email
-	 * @param string $configGroup
+	 * @param string|array|null $configGroup
 	 * @return string
 	 * @throws InvalidEmailException
 	 */
