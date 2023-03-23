@@ -86,7 +86,7 @@ class Gravatar
 
 		$headers = @get_headers($this->buildUrl());
 
-		return (bool) strpos($headers[0], '200');
+		return (bool) ($headers) ? strpos($headers[0], '200') : false;
 	}
 
 	/**
