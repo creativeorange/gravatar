@@ -65,7 +65,7 @@ Within your controllers or views, you can use
 ```
 
 this will return the URL to the gravatar image of the specified email address.
-In case of a non-existing gravatar, it will return return a URL to a placeholder image. 
+In case of a non-existing gravatar, it will return a URL to a placeholder image. 
 You can set the type of the placeholder in the configuration option `fallback`. 
 For more information, visit [gravatar.com](http://en.gravatar.com/site/implement/images/#default-image)
 
