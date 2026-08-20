@@ -1,0 +1,34 @@
+name: Security CI
+
+on:
+  pull_request:
+  merge_group:
+
+permissions:
+  actions: read
+  contents: read
+  security-events: write
+
+jobs:
+  security:
+    uses: brainpink/github-workflows/.github/workflows/security-ci.yml@main
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    with:
+      php-version: "5.4"
+      node-version: "22"
+    secrets:
+      composer-auth: ${{ secrets.COMPOSER_AUTH }}
+
+  gate:
+    name: Security CI
+    if: always()
+    needs: security
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require the reusable workflow to pass
+        env:
+          RESULT: ${{ needs.security.result }}
+        run: test "$RESULT" = "success"
