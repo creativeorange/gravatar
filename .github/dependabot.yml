@@ -1,0 +1,22 @@
+version: 2
+updates:
+  - package-ecosystem: "composer"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "05:00"
+      timezone: "Europe/Amsterdam"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+      - "automated"
+    groups:
+      patch-updates:
+        applies-to: "version-updates"
+        update-types:
+          - "patch"
+      minor-updates:
+        applies-to: "version-updates"
+        update-types:
+          - "minor"
